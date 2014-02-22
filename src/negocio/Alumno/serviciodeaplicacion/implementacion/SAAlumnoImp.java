@@ -37,6 +37,7 @@ public class SAAlumnoImp implements SAAlumno {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public Alumno añadirAlumno(Alumno alumnonuevo) throws ColegioExceptions {
+		
 		EntityManagerFactory entityManagerFactory = Persistence
 				.createEntityManagerFactory(Colegio.UNIDAD_PERSISTENCIA_ECLIPSELINK);
 		EntityManager entityManager = entityManagerFactory
@@ -58,13 +59,13 @@ public class SAAlumnoImp implements SAAlumno {
 		    throw new ColegioExceptions("El Alumno ya existe en la base de datos");
 		    
 		    }else{
-		    alumnonuevo.setID(resultado.getID());
+		   //alumnonuevo.setID(resultado.getID());
 			entityManager.merge(alumnonuevo);
 			entityManager.getTransaction().commit();
 		    }
 		   
 		    
-		} catch (NoResultException ex) {// No se encontro el empleado.
+		} catch (NoResultException ex) {
 		    entityManager.persist(alumnonuevo);
 
 		    entityManager.getTransaction().commit();
@@ -84,7 +85,7 @@ public class SAAlumnoImp implements SAAlumno {
 		}
 
 		return alumnonuevo;
-		// end-user-code
+		
 	}
 
 	/** 

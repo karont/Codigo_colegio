@@ -5,16 +5,17 @@ package negocio.Asignatura.objetodenegocio;
 
 import javax.persistence.Entity;
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.NamedQuery;
 import javax.persistence.NamedQueries;
+import javax.persistence.OneToMany;
+
 import negocio.Grupo.objetodenegocio.Grupo;
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
+
 
 import org.eclipse.persistence.annotations.OptimisticLocking;
 import org.eclipse.persistence.annotations.OptimisticLockingType;
@@ -28,10 +29,11 @@ import org.eclipse.persistence.annotations.OptimisticLockingType;
 @Entity
 @OptimisticLocking(type = OptimisticLockingType.CHANGED_COLUMNS)
 @NamedQueries({
-		@NamedQuery(name = "negocio.Asignatura.objetodenegocio.Asignatura.findByid", query = "select obj from Asignatura obj where obj.id = :id"),
+		@NamedQuery(name = "negocio.Asignatura.objetodenegocio.Asignatura.findByid", query = "select obj from Asignatura obj where obj.id = :id and obj.activo = true"),
 		@NamedQuery(name = "negocio.Asignatura.objetodenegocio.Asignatura.findByactivo", query = "select obj from Asignatura obj where obj.activo = :activo"),
-		@NamedQuery(name = "negocio.Asignatura.objetodenegocio.Asignatura.findBynombre", query = "select obj from Asignatura obj where obj.nombre = :nombre"),
-		@NamedQuery(name = "negocio.Asignatura.objetodenegocio.Asignatura.findBygrupo", query = "select obj from Asignatura obj where obj.grupo = :grupo") })
+		@NamedQuery(name = "negocio.Asignatura.objetodenegocio.Asignatura.findBynombre", query = "select obj from Asignatura obj where obj.nombre = :nombre and obj.activo = true"),
+		@NamedQuery(name = "negocio.Asignatura.objetodenegocio.Asignatura.findBygrupo", query = "select obj from Asignatura obj where obj.grupo = :grupo"),
+		@NamedQuery(name = "negocio.Asignatura.objetodenegocio.Asignatura.findBynombreinactive", query = "select obj from Asignatura obj where obj.nombre = :nombre") })
 public class Asignatura implements Serializable {
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -39,7 +41,10 @@ public class Asignatura implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	private static final long serialVersionUID = 0;
-
+	
+	public static final String QUERY_BUSCAR_ASIGNATURA_POR_NOMBRE_NOACTIVO = "negocio.Asignatura.objetodenegocio.Asignatura.findBynombreinactive";
+	public static final String QUERY_BUSCAR_ASIGNATURA_POR_NOMBRE = "negocio.Asignatura.objetodenegocio.Asignatura.findBynombre";
+	public static final String QUERY_BUSCAR_ASIGNATURA_POR_ID = "negocio.Asignatura.objetodenegocio.Asignatura.findByid";
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
@@ -75,8 +80,8 @@ public class Asignatura implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, optional = true)
-	private Grupo grupo;
+	@OneToMany(mappedBy = "asignatura")
+	private Set<Grupo> grupo;
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -84,11 +89,11 @@ public class Asignatura implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	
-	public void setGrupo (Grupo grupo){
+	public void setGrupo (Set<Grupo> grupo){
 		this.grupo = grupo;
 	}
 	
-	public Grupo getGrupo(){
+	public Set<Grupo> getGrupo(){
 		return this.grupo;
 	}
 	public void setID(int id) {

@@ -6,9 +6,12 @@ package negocio.Grupo.objetodenegocio;
 import javax.persistence.Entity;
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.NamedQueries;
 import java.util.Set;
@@ -34,7 +37,7 @@ import org.eclipse.persistence.annotations.OptimisticLockingType;
 		@NamedQuery(name = "negocio.Grupo.objetodenegocio.Grupo.findByactivo", query = "select obj from Grupo obj where obj.activo = :activo"),
 		@NamedQuery(name = "negocio.Grupo.objetodenegocio.Grupo.findBycurso", query = "select obj from Grupo obj where obj.curso = :curso"),
 		@NamedQuery(name = "negocio.Grupo.objetodenegocio.Grupo.findByalumno", query = "select obj from Grupo obj where obj.alumno = :alumno"),
-		@NamedQuery(name = "negocio.Grupo.objetodenegocio.Grupo.findByasignatura", query = "select obj from Grupo obj where obj.asignatura = :asignatura") })
+		@NamedQuery(name = "negocio.Grupo.objetodenegocio.Grupo.findByasignatura", query = "select obj from Grupo obj where obj.asignatura = :asignatura and obj.activo = true") })
 public class Grupo implements Serializable {
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -42,6 +45,8 @@ public class Grupo implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	private static final long serialVersionUID = 0;
+	
+	public static final String QUERY_BUSCAR_GRUPO_POR_ASIGNATURA = "negocio.Grupo.objetodenegocio.Grupo.findByasignatura";
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -97,15 +102,16 @@ public class Grupo implements Serializable {
 		this.alumno = alumno;
 	}
 	
-	@OneToMany(mappedBy = "grupo")
-	private Set<Asignatura> asignatura;
+	
+	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, optional = true)
+	private Asignatura asignatura;
 	
 	
-	public Set<Asignatura> getAsignaturas() {
+	public Asignatura getAsignaturas() {
 		return this.asignatura;
 	}
 
-	public void setAsignatura(Set<Asignatura> asignatura) {
+	public void setAsignatura(Asignatura asignatura) {
 		this.asignatura = asignatura;
 	}
 	/** 
