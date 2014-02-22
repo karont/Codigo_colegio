@@ -5,6 +5,8 @@ package negocio.Grupo.objetodenegocio;
 
 import javax.persistence.Entity;
 import java.io.Serializable;
+
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.NamedQuery;
@@ -15,6 +17,9 @@ import javax.persistence.ManyToMany;
 import negocio.Asignatura.objetodenegocio.Asignatura;
 import javax.persistence.OneToMany;
 
+import org.eclipse.persistence.annotations.OptimisticLocking;
+import org.eclipse.persistence.annotations.OptimisticLockingType;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
@@ -22,6 +27,7 @@ import javax.persistence.OneToMany;
  * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
  */
 @Entity
+@OptimisticLocking(type = OptimisticLockingType.CHANGED_COLUMNS)
 @NamedQueries({
 		@NamedQuery(name = "negocio.Grupo.objetodenegocio.Grupo.findByid", query = "select obj from Grupo obj where obj.id = :id"),
 		@NamedQuery(name = "negocio.Grupo.objetodenegocio.Grupo.findByletra", query = "select obj from Grupo obj where obj.letra = :letra"),
@@ -50,9 +56,9 @@ public class Grupo implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private Integer id;
+	private int id;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
@@ -83,19 +89,32 @@ public class Grupo implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
+	public Set<Alumno> getAlumno() {
+		return this.alumno;
+	}
+
+	public void setAlumno(Set<Alumno> alumno) {
+		this.alumno = alumno;
+	}
+	
 	@OneToMany(mappedBy = "grupo")
 	private Set<Asignatura> asignatura;
+	
+	
+	public Set<Asignatura> getAsignaturas() {
+		return this.asignatura;
+	}
 
+	public void setAsignatura(Set<Asignatura> asignatura) {
+		this.asignatura = asignatura;
+	}
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void setID() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public void setID(int id) {
+		this.id=id;
 	}
 
 	/** 
@@ -103,11 +122,8 @@ public class Grupo implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void setLetra() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public void setLetra(Character letra) {
+		this.letra = letra;
 	}
 
 	/** 
@@ -115,11 +131,8 @@ public class Grupo implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void setActivo() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public void setActivo(boolean activo) {
+		this.activo = activo;
 	}
 
 	/** 
@@ -127,11 +140,8 @@ public class Grupo implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void setCurso() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public void setCurso(Integer curso) {
+		this.curso = curso;
 	}
 
 	/** 
@@ -141,10 +151,9 @@ public class Grupo implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public int getID() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return 0;
-		// end-user-code
+		
+		return this.id;
+	
 	}
 
 	/** 
@@ -153,11 +162,10 @@ public class Grupo implements Serializable {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public char getLetra() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return 0;
-		// end-user-code
+	public Character getLetra() {
+
+		return this.letra;
+
 	}
 
 	/** 
@@ -167,10 +175,9 @@ public class Grupo implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public boolean getActivo() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return false;
-		// end-user-code
+		
+		return this.activo;
+		
 	}
 
 	/** 
@@ -179,10 +186,14 @@ public class Grupo implements Serializable {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public int getCurso() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return 0;
-		// end-user-code
+	public Integer getCurso() {
+		
+		return this.curso;
+	
+	}
+	 @Override
+	 public String toString() {
+
+	return curso + " " + letra ;
 	}
 }

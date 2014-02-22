@@ -36,5 +36,20 @@ public class AlumnoNoBecado extends Alumno implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	private Integer id;
+	private int id;
+	
+	public void setId(int id){
+		this.id = id;
+	}
+	
+	public int getId(){
+		return id;
+	}
+	
+	 @Override
+	 public String toString() {
+
+	return getDNI() + " " + getNombre() + " " + getPrimerApellido() + " "
+			+ getSegundoApellido()+ " "+getTipoAlumno();
+	}
 }

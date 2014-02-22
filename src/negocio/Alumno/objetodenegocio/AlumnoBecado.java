@@ -32,6 +32,7 @@ public class AlumnoBecado extends Alumno implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public AlumnoBecado() {
+		this.tipobeca="";
 	}
 
 	/** 
@@ -39,11 +40,32 @@ public class AlumnoBecado extends Alumno implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	private Integer id;
+	private int id;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	private String tipobeca;
+	
+	public void setId(int id){
+		this.id = id;
+	}
+	
+	public int getId(){
+		return id;
+	}
+	public void setTipobeca(String  tipobeca){
+		this.tipobeca = tipobeca;
+	}
+	
+	public String getTipobeca(){
+		return this.tipobeca;
+	}
+	 @Override
+	 public String toString() {
+
+	return getDNI() + " " + getNombre() + " " + getPrimerApellido() + " "
+			+ getSegundoApellido()+ " "+getTipoAlumno()+ " "+ tipobeca ;
+	}
 }

@@ -5,6 +5,8 @@ package negocio.Alumno.objetodenegocio;
 
 import javax.persistence.Entity;
 import java.io.Serializable;
+
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.Id;
@@ -13,11 +15,17 @@ import javax.persistence.NamedQuery;
 import javax.persistence.NamedQueries;
 import java.util.Set;
 import negocio.Grupo.objetodenegocio.Grupo;
+
+
+
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.InheritanceType;
 import javax.persistence.Inheritance;
+
+import org.eclipse.persistence.annotations.OptimisticLocking;
+import org.eclipse.persistence.annotations.OptimisticLockingType;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -26,6 +34,7 @@ import javax.persistence.Inheritance;
  * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
  */
 @Inheritance(strategy = InheritanceType.JOINED)
+@OptimisticLocking(type = OptimisticLockingType.CHANGED_COLUMNS)
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = "DNI") })
 @Entity
 @NamedQueries({
@@ -50,6 +59,11 @@ public class Alumno implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public Alumno() {
+		DNI = "";
+		nombre = "";
+		primerapellido = "";
+		segundoapellido = "";
+		activo = true;
 	}
 
 	/** 
@@ -57,9 +71,9 @@ public class Alumno implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private Integer id;
+	private int id;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
@@ -103,11 +117,17 @@ public class Alumno implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void setID() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
+	
+	public Set<Grupo> getGrupo() {
+		return this.grupo;
+	}
 
-		// end-user-code
+	public void setGrupo(Set<Grupo> grupo) {
+		this.grupo = grupo;
+	}
+	
+	public void setID(int id) {
+		this.id = id;
 	}
 
 	/** 
@@ -115,11 +135,8 @@ public class Alumno implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void setNombre() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	/** 
@@ -127,11 +144,8 @@ public class Alumno implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void setPrimerApellido() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public void setPrimerApellido(String primerapellido) {
+		this.primerapellido = primerapellido;
 	}
 
 	/** 
@@ -139,11 +153,8 @@ public class Alumno implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void setSegundoApellido() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public void setSegundoApellido(String segundoapellido) {
+		this.segundoapellido = segundoapellido;
 	}
 
 	/** 
@@ -151,11 +162,8 @@ public class Alumno implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void setDNI() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public void setDNI(String DNI) {
+		this.DNI = DNI;
 	}
 
 	/** 
@@ -163,11 +171,8 @@ public class Alumno implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void setActivo() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public void setActivo(boolean activo) {
+		this.activo = activo;
 	}
 
 	/** 
@@ -177,10 +182,7 @@ public class Alumno implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public int getID() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return 0;
-		// end-user-code
+		return this.id;
 	}
 
 	/** 
@@ -190,10 +192,8 @@ public class Alumno implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public String getNombre() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return null;
-		// end-user-code
+		return this.nombre;
+
 	}
 
 	/** 
@@ -203,10 +203,9 @@ public class Alumno implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public String getPrimerApellido() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return null;
-		// end-user-code
+
+		return this.primerapellido;
+
 	}
 
 	/** 
@@ -216,10 +215,9 @@ public class Alumno implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public String getSegundoApellido() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return null;
-		// end-user-code
+
+		return this.segundoapellido;
+
 	}
 
 	/** 
@@ -229,10 +227,9 @@ public class Alumno implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public String getDNI() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return null;
-		// end-user-code
+
+		return this.DNI;
+	
 	}
 
 	/** 
@@ -242,9 +239,33 @@ public class Alumno implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public boolean getActivo() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return false;
-		// end-user-code
+	
+		return this.activo;
+		
+	}
+	private TipoAlumno tipo;
+	
+	public enum TipoAlumno {
+		BECADO, NOBECADO
+	};
+	
+	public void setTipoAlumno(TipoAlumno tipo){
+		this.tipo=tipo;
+	}
+	
+	public TipoAlumno getTipoAlumno(){
+		return this.tipo;
+	}
+	@Override
+    public boolean equals(Object o) {
+
+	return DNI.equals(((Alumno) o).getDNI());
+    }
+	
+	 @Override
+	 public String toString() {
+
+	return DNI + " " + nombre + " " + primerapellido + " "
+			+ segundoapellido ;
 	}
 }

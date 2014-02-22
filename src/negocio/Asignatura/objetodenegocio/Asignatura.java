@@ -5,6 +5,8 @@ package negocio.Asignatura.objetodenegocio;
 
 import javax.persistence.Entity;
 import java.io.Serializable;
+
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.NamedQuery;
@@ -14,6 +16,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
+import org.eclipse.persistence.annotations.OptimisticLocking;
+import org.eclipse.persistence.annotations.OptimisticLockingType;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
@@ -21,6 +26,7 @@ import javax.persistence.ManyToOne;
  * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
  */
 @Entity
+@OptimisticLocking(type = OptimisticLockingType.CHANGED_COLUMNS)
 @NamedQueries({
 		@NamedQuery(name = "negocio.Asignatura.objetodenegocio.Asignatura.findByid", query = "select obj from Asignatura obj where obj.id = :id"),
 		@NamedQuery(name = "negocio.Asignatura.objetodenegocio.Asignatura.findByactivo", query = "select obj from Asignatura obj where obj.activo = :activo"),
@@ -40,6 +46,8 @@ public class Asignatura implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public Asignatura() {
+		this.activo= true;
+		this.nombre = "";
 	}
 
 	/** 
@@ -47,9 +55,9 @@ public class Asignatura implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private Integer id;
+	private int id;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
@@ -75,11 +83,16 @@ public class Asignatura implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void setID() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	
+	public void setGrupo (Grupo grupo){
+		this.grupo = grupo;
+	}
+	
+	public Grupo getGrupo(){
+		return this.grupo;
+	}
+	public void setID(int id) {
+		this.id = id;
 	}
 
 	/** 
@@ -87,11 +100,8 @@ public class Asignatura implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void setActivo() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public void setActivo(boolean activo) {
+		this.activo = activo;
 	}
 
 	/** 
@@ -99,11 +109,8 @@ public class Asignatura implements Serializable {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void setNombre() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public void setNombre( String nombre) {
+		this.nombre = nombre;
 	}
 
 	/** 
@@ -113,10 +120,9 @@ public class Asignatura implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public int getID() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return 0;
-		// end-user-code
+	
+		return this.id;
+
 	}
 
 	/** 
@@ -126,10 +132,9 @@ public class Asignatura implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public boolean getActivo() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return false;
-		// end-user-code
+
+		return this.activo;
+	
 	}
 
 	/** 
@@ -139,9 +144,13 @@ public class Asignatura implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public String getNombre() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return null;
-		// end-user-code
+	
+		return this.nombre;
+		
 	}
+	  @Override
+	    public String toString() {
+
+		return nombre;
+	    }
 }
