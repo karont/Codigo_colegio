@@ -18,7 +18,7 @@ import java.util.Set;
 import negocio.Alumno.objetodenegocio.Alumno;
 import javax.persistence.ManyToMany;
 import negocio.Asignatura.objetodenegocio.Asignatura;
-import javax.persistence.OneToMany;
+
 
 import org.eclipse.persistence.annotations.OptimisticLocking;
 import org.eclipse.persistence.annotations.OptimisticLockingType;
@@ -32,7 +32,8 @@ import org.eclipse.persistence.annotations.OptimisticLockingType;
 @Entity
 @OptimisticLocking(type = OptimisticLockingType.CHANGED_COLUMNS)
 @NamedQueries({
-		@NamedQuery(name = "negocio.Grupo.objetodenegocio.Grupo.findByid", query = "select obj from Grupo obj where obj.id = :id"),
+		@NamedQuery(name = "negocio.Grupo.objetodenegocio.Grupo.findByid", query = "select obj from Grupo obj where obj.id = :id and obj.activo = true"),
+		@NamedQuery(name = "negocio.Grupo.objetodenegocio.Grupo.findByidinactive", query = "select obj from Grupo obj where obj.id = :id"),
 		@NamedQuery(name = "negocio.Grupo.objetodenegocio.Grupo.findByletra", query = "select obj from Grupo obj where obj.letra = :letra"),
 		@NamedQuery(name = "negocio.Grupo.objetodenegocio.Grupo.findByactivo", query = "select obj from Grupo obj where obj.activo = :activo"),
 		@NamedQuery(name = "negocio.Grupo.objetodenegocio.Grupo.findBycurso", query = "select obj from Grupo obj where obj.curso = :curso"),
@@ -45,7 +46,8 @@ public class Grupo implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	private static final long serialVersionUID = 0;
-	
+	public static final String QUERY_BUSCAR_GRUPO_POR_ID_INACTIVO = "negocio.Grupo.objetodenegocio.Grupo.findByidinactive";
+	public static final String QUERY_BUSCAR_GRUPO_POR_ID= "negocio.Grupo.objetodenegocio.Grupo.findByid";
 	public static final String QUERY_BUSCAR_GRUPO_POR_ASIGNATURA = "negocio.Grupo.objetodenegocio.Grupo.findByasignatura";
 
 	/** 

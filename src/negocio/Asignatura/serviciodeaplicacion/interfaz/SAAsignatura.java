@@ -29,7 +29,7 @@ public interface SAAsignatura {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public boolean borrarAsignatura(int idAsignatura) throws ColegioExceptions;
+	public boolean borrarAsignatura(Asignatura asignaturaaborrar) throws ColegioExceptions;
 
 	/** 
 	 * <!-- begin-UML-doc -->
