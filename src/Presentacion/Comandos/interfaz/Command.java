@@ -3,6 +3,8 @@
  */
 package Presentacion.Comandos.interfaz;
 
+import Presentacion.Comandos.CommandResponse;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
@@ -15,5 +17,5 @@ public interface Command {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void execute();
+public CommandResponse execute(Object datos);
 }

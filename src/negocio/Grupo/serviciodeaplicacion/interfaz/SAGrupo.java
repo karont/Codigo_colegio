@@ -29,7 +29,7 @@ public interface SAGrupo {
 	 * @param borrado
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public boolean borrarGrupo(int idgrupo)throws ColegioExceptions;
+	public boolean borrarGrupo(Grupo grupoaborrar)throws ColegioExceptions;
 
 	/** 
 	 * <!-- begin-UML-doc -->

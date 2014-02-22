@@ -3,19 +3,23 @@
  */
 package Presentacion.Comandos.Factoria.Singleton;
 
+import Presentacion.Comandos.interfaz.Command;
+import Presentacion.Comandos.Factoria.imp.CommandFactoryImp;
+import Presentacion.Comandos.IdEventos;;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
  * @author Alex
  * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
  */
-public class CommandFactory {
+public abstract class CommandFactory {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	private Object commandfactoryinstance;
+	private CommandFactory commandfactoryinstance;
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -23,10 +27,8 @@ public class CommandFactory {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	public void getInstance() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+		if(commandfactoryinstance == null)
+			commandfactoryinstance = new CommandFactoryImp();
 	}
 
 	/** 
@@ -34,10 +36,5 @@ public class CommandFactory {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void nuevoComando() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
+	public abstract Command nuevoComando(IdEventos id_comando);
 }

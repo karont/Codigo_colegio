@@ -3,6 +3,7 @@
  */
 package Presentacion.Comandos.Grupo.comandos;
 
+import Presentacion.Comandos.CommandResponse;
 import Presentacion.Comandos.interfaz.Command;
 
 /** 
@@ -17,10 +18,8 @@ public class CommandBajaGrupo implements Command {
 	 * @see Command#execute()
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void execute() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public CommandResponse execute(Object datos) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
