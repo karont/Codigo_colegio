@@ -5,6 +5,7 @@ package negocio.Grupo.serviciodeaplicacion.implementacion;
 
 import negocio.Grupo.serviciodeaplicacion.interfaz.SAGrupo;
 import negocio.Grupo.objetodenegocio.Grupo;
+import negocio.exceptions.ColegioExceptions;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -18,7 +19,7 @@ public class SAGrupoImp implements SAGrupo {
 	 * @see SAGrupo#añadirGrupo(Grupo nuevogrupo)
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public Grupo añadirGrupo(Grupo nuevogrupo) {
+	public Grupo añadirGrupo(Grupo nuevogrupo) throws ColegioExceptions{
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 		return null;
@@ -30,7 +31,8 @@ public class SAGrupoImp implements SAGrupo {
 	 * @see SAGrupo#borrarGrupo(int idgrupo, boolean borrado)
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void borrarGrupo(int idgrupo, boolean borrado) {
+	public boolean borrarGrupo(int idgrupo) throws ColegioExceptions {
+		return false;
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 
@@ -42,7 +44,8 @@ public class SAGrupoImp implements SAGrupo {
 	 * @see SAGrupo#obtenerGrupo(int idgrupo, Grupo grupo)
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void obtenerGrupo(int idgrupo, Grupo grupo) {
+	public Grupo obtenerGrupo(int idgrupo) throws ColegioExceptions {
+		return null;
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 

@@ -4,6 +4,7 @@
 package negocio.Asignatura.serviciodeaplicacion.interfaz;
 
 import negocio.Asignatura.objetodenegocio.Asignatura;
+import negocio.exceptions.ColegioExceptions;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -19,7 +20,7 @@ public interface SAAsignatura {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public Asignatura añadirAsignatura(Asignatura nuevaasignatura);
+	public Asignatura añadirAsignatura(Asignatura nuevaasignatura)throws ColegioExceptions;
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -28,7 +29,7 @@ public interface SAAsignatura {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public boolean borrarAsignatura(int idAsignatura);
+	public boolean borrarAsignatura(int idAsignatura) throws ColegioExceptions;
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -37,5 +38,5 @@ public interface SAAsignatura {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public Asignatura obtenerAsignatura(int idasignatura);
+	public Asignatura obtenerAsignatura(int idasignatura) throws ColegioExceptions;
 }

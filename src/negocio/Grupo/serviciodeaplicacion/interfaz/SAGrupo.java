@@ -4,6 +4,7 @@
 package negocio.Grupo.serviciodeaplicacion.interfaz;
 
 import negocio.Grupo.objetodenegocio.Grupo;
+import negocio.exceptions.ColegioExceptions;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -19,7 +20,7 @@ public interface SAGrupo {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public Grupo añadirGrupo(Grupo nuevogrupo);
+	public Grupo añadirGrupo(Grupo nuevogrupo) throws ColegioExceptions;
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -28,7 +29,7 @@ public interface SAGrupo {
 	 * @param borrado
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void borrarGrupo(int idgrupo, boolean borrado);
+	public boolean borrarGrupo(int idgrupo)throws ColegioExceptions;
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -37,5 +38,5 @@ public interface SAGrupo {
 	 * @param grupo
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void obtenerGrupo(int idgrupo, Grupo grupo);
+	public Grupo obtenerGrupo(int idgrupo)throws ColegioExceptions;
 }

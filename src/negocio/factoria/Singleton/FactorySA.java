@@ -20,7 +20,7 @@ public abstract class FactorySA {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	private FactorySA factorysainstance;
+	private static FactorySA factorysainstance;
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -28,11 +28,12 @@ public abstract class FactorySA {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public FactorySAimp getInstance() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return null;
-		// end-user-code
+	public FactorySA getInstance() {
+		if(factorysainstance == null)
+			factorysainstance = new FactorySAimp();
+		
+		return factorysainstance;
+		
 	}
 
 	/** 
@@ -41,12 +42,7 @@ public abstract class FactorySA {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public SAGrupo getSAgrupo() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return null;
-		// end-user-code
-	}
+	public abstract SAGrupo getSAgrupo();
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -54,12 +50,7 @@ public abstract class FactorySA {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public SAAlumno getSAalumno() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return null;
-		// end-user-code
-	}
+	public abstract SAAlumno getSAalumno();
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -67,10 +58,5 @@ public abstract class FactorySA {
 	 * @param saasignatura
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void getSAasignatura(SAAsignatura saasignatura) {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public abstract SAAsignatura getSAasignatura(); 
 	}
-}

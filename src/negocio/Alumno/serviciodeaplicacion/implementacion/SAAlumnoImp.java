@@ -5,7 +5,10 @@ package negocio.Alumno.serviciodeaplicacion.implementacion;
 
 import negocio.Alumno.serviciodeaplicacion.interfaz.SAAlumno;
 import negocio.Alumno.objetodenegocio.Alumno;
-import java.util.ArrayList;
+import negocio.exceptions.ColegioExceptions;
+
+
+import java.util.List;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -19,7 +22,7 @@ public class SAAlumnoImp implements SAAlumno {
 	 * @see SAAlumno#añadirAlumno(Alumno alumnonuevo)
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public Alumno añadirAlumno(Alumno alumnonuevo) {
+	public Alumno añadirAlumno(Alumno alumnonuevo) throws ColegioExceptions {
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 		return null;
@@ -31,7 +34,7 @@ public class SAAlumnoImp implements SAAlumno {
 	 * @see SAAlumno#obtenerTodosAlumnos()
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public ArrayList obtenerTodosAlumnos() {
+	public List<Alumno> obtenerTodosAlumnos() throws ColegioExceptions{
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 		return null;
@@ -43,7 +46,7 @@ public class SAAlumnoImp implements SAAlumno {
 	 * @see SAAlumno#actualizarAlumno(Object alumnoactualizado)
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public Alumno actualizarAlumno(Object alumnoactualizado) {
+	public Alumno actualizarAlumno(Alumno alumnoactualizado) throws ColegioExceptions{
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 		return null;
@@ -55,7 +58,7 @@ public class SAAlumnoImp implements SAAlumno {
 	 * @see SAAlumno#borrarAlumno(int alumnoaborrar)
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public boolean borrarAlumno(int alumnoaborrar) {
+	public boolean borrarAlumno(int alumnoaborrar) throws ColegioExceptions{
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 		return false;
@@ -67,10 +70,12 @@ public class SAAlumnoImp implements SAAlumno {
 	 * @see SAAlumno#obtenerAlumno(int idalumno)
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public Alumno obtenerAlumno(int idalumno) {
+	public Alumno obtenerAlumno(int idalumno) throws ColegioExceptions{
 		// begin-user-code
 		// TODO Apéndice de método generado automáticamente
 		return null;
 		// end-user-code
 	}
+
+
 }

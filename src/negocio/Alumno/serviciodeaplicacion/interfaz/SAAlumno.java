@@ -4,7 +4,9 @@
 package negocio.Alumno.serviciodeaplicacion.interfaz;
 
 import negocio.Alumno.objetodenegocio.Alumno;
-import java.util.ArrayList;
+import negocio.exceptions.ColegioExceptions;
+
+import java.util.List;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -20,7 +22,7 @@ public interface SAAlumno {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public Alumno añadirAlumno(Alumno alumnonuevo);
+	public Alumno añadirAlumno(Alumno alumnonuevo) throws ColegioExceptions; 
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -28,7 +30,7 @@ public interface SAAlumno {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public ArrayList obtenerTodosAlumnos();
+	public List<Alumno> obtenerTodosAlumnos() throws ColegioExceptions;
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -37,7 +39,7 @@ public interface SAAlumno {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public Alumno actualizarAlumno(Object alumnoactualizado);
+	public Alumno actualizarAlumno(Alumno alumnoactualizado) throws ColegioExceptions;
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -46,7 +48,7 @@ public interface SAAlumno {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public boolean borrarAlumno(int alumnoaborrar);
+	public boolean borrarAlumno(int alumnoaborrar) throws ColegioExceptions;
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -55,5 +57,5 @@ public interface SAAlumno {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public Alumno obtenerAlumno(int idalumno);
+	public Alumno obtenerAlumno(int idalumno) throws ColegioExceptions;
 }
