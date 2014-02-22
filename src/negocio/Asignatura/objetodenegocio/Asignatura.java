@@ -148,6 +148,9 @@ public class Asignatura implements Serializable {
 		return this.nombre;
 		
 	}
+	public boolean isActivo(){
+		return activo;
+	}
 	  @Override
 	    public String toString() {
 

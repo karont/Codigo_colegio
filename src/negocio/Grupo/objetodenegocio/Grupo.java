@@ -191,6 +191,9 @@ public class Grupo implements Serializable {
 		return this.curso;
 	
 	}
+	public boolean isActivo(){
+		return activo;
+	}
 	 @Override
 	 public String toString() {
 

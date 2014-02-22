@@ -38,13 +38,15 @@ import org.eclipse.persistence.annotations.OptimisticLockingType;
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = "DNI") })
 @Entity
 @NamedQueries({
-		@NamedQuery(name = "negocio.Alumno.objetodenegocio.Alumno.findByid", query = "select obj from Alumno obj where obj.id = :id"),
+		@NamedQuery(name = "negocio.Alumno.objetodenegocio.Alumno.findByid", query = "select obj from Alumno obj where obj.id = :id and obj,activo = true"),
 		@NamedQuery(name = "negocio.Alumno.objetodenegocio.Alumno.findBynombre", query = "select obj from Alumno obj where obj.nombre = :nombre"),
 		@NamedQuery(name = "negocio.Alumno.objetodenegocio.Alumno.findByprimerapellido", query = "select obj from Alumno obj where obj.primerapellido = :primerapellido"),
 		@NamedQuery(name = "negocio.Alumno.objetodenegocio.Alumno.findBysegundoapellido", query = "select obj from Alumno obj where obj.segundoapellido = :segundoapellido"),
 		@NamedQuery(name = "negocio.Alumno.objetodenegocio.Alumno.findByDNI", query = "select obj from Alumno obj where obj.DNI = :DNI"),
 		@NamedQuery(name = "negocio.Alumno.objetodenegocio.Alumno.findByactivo", query = "select obj from Alumno obj where obj.activo = :activo"),
-		@NamedQuery(name = "negocio.Alumno.objetodenegocio.Alumno.findBygrupo", query = "select obj from Alumno obj where obj.grupo = :grupo") })
+		@NamedQuery(name = "negocio.Alumno.objetodenegocio.Alumno.findAll", query = "select obj from Alumno obj where obj.activo = true"),
+		@NamedQuery(name = "negocio.Alumno.objetodenegocio.Alumno.findBygrupo", query = "select obj from Alumno obj where obj.grupo = :grupo"),
+		@NamedQuery(name = "negocio.Alumno.objetodenegocio.Alumno.findalleveninactive", query = "select obj from Alumno obj where obj.DNI = :dni") })
 public class Alumno implements Serializable {
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -52,6 +54,10 @@ public class Alumno implements Serializable {
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
 	private static final long serialVersionUID = 0;
+	
+	public static final String QUERY_BUSCAR_ALUMNOS_POR_DNI_NOACTIVO = "negocio.Alumno.objetodenegocio.Alumno.findalleveninactive";
+	public static final String QUERY_BUSCAR_ALUMNOS_POR_ID = "negocio.Alumno.objetodenegocio.Alumno.findByid";
+	public static final String QUERY_BUSCAR_TODOS_LOS_ALUMNOS = "negocio.Alumno.objetodenegocio.Alumno.findAll";
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -262,6 +268,9 @@ public class Alumno implements Serializable {
 	return DNI.equals(((Alumno) o).getDNI());
     }
 	
+	public boolean isActivo(){
+		return activo;
+	}
 	 @Override
 	 public String toString() {
 
