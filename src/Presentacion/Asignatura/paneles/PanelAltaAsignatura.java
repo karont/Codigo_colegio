@@ -3,6 +3,7 @@
  */
 package Presentacion.Asignatura.paneles;
 
+import Presentacion.Comandos.IdEventos;
 import Presentacion.Ventanaprincipal.Interfazpaneles.GuiPanelesInterfaz;
 
 /** 
@@ -12,15 +13,17 @@ import Presentacion.Ventanaprincipal.Interfazpaneles.GuiPanelesInterfaz;
  * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
  */
 public class PanelAltaAsignatura implements GuiPanelesInterfaz {
+
+
+	public void actualizarVentana(IdEventos idEvento, Object datos) {
+		// TODO Auto-generated method stub
+		
+	}
 	/** 
 	 * (sin Javadoc)
 	 * @see GuiPanelesInterfaz#actualizarVentana()
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void actualizarVentana() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
 
-		// end-user-code
-	}
+	
 }

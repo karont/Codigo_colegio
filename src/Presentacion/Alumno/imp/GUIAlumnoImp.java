@@ -9,6 +9,7 @@ import Presentacion.Alumno.paneles.PanelBajaAlumno;
 import Presentacion.Alumno.paneles.PanelAltaAlumno;
 import Presentacion.Alumno.paneles.PanelConsultaMultiplesAlumnos;
 import Presentacion.Alumno.paneles.PanelModificarAlumno;
+import Presentacion.Comandos.IdEventos;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -22,29 +23,101 @@ public class GUIAlumnoImp extends GUIAlumno {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	private PanelConsultaAlumno panelConsultaAlumno;
+	private static PanelConsultaAlumno panelConsultaAlumno;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	private PanelBajaAlumno panelBajaAlumno;
+	private static PanelBajaAlumno panelBajaAlumno;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	private PanelAltaAlumno panelAltaAlumno;
+	private static PanelAltaAlumno panelAltaAlumno;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	private PanelConsultaMultiplesAlumnos panelConsultaMultiplesAlumnos;
+	private static PanelConsultaMultiplesAlumnos panelConsultaMultiplesAlumnos;
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	private PanelModificarAlumno panelModificarAlumno;
+	private static PanelModificarAlumno panelModificarAlumno;
+	
+	public void update(IdEventos evento_actual, Object datos) {
+		
+		switch (evento_actual) {
+		
+			case EVENTO_ALTA_ALUMNO:
+			case ERROR_ALTA_ALUMNO:
+				getPanelAltaAlumno().actualizarVentana(evento_actual, datos);
+				break;
+			case EVENTO_BAJA_ALUMNO:
+			case ERROR_BAJA_ALUMNO:
+			case EVENTO_CONSULTAR_ALUMNO_V_BORRAR:
+			case ERROR_CONSULTAR_ALUMNO_V_BORRAR:
+				getPanelBajaAlumno().actualizarVentana(evento_actual, datos);
+				break;
+			case EVENTO_MODIFICAR_ALUMNO:
+			case ERROR_MODIFICAR_ALUMNO:
+			case EVENTO_CONSULTAR_ALUMNO_V_MODIFICAR:
+			case ERROR_CONSULTAR_ALUMNO_V_MODIFICAR:
+				getPanelModificarAlumno().actualizarVentana(evento_actual, datos);
+				break;
+			case EVENTO_CONSULTAR_ALUMNO:
+			case ERROR_CONSULTAR_ALUMNO:
+				getPanelConsultaAlumno().actualizarVentana(evento_actual, datos);
+				break;
+			case EVENTO_CONSULTAR_TODOS_ALUMNO:
+			case ERROR_CONSULTAR_TODOS_ALUMNO:
+				getPanelConsultaMultipleAlumnos().actualizarVentana(evento_actual, datos);
+				break;
+	
+			default:
+				break;
+
+		}
+		
+	}
+
+	public PanelAltaAlumno getPanelAltaAlumno() {
+		if(panelAltaAlumno == null){
+			panelAltaAlumno = new PanelAltaAlumno();
+		}
+		return panelAltaAlumno;
+	}
+
+	public PanelBajaAlumno getPanelBajaAlumno() {
+		
+		if(panelBajaAlumno == null){
+			panelBajaAlumno = new PanelBajaAlumno();
+		}
+		return panelBajaAlumno;
+	}
+
+	public PanelConsultaAlumno getPanelConsultaAlumno() {
+		if(panelConsultaAlumno == null){
+			panelConsultaAlumno = new PanelConsultaAlumno();
+		}
+		return panelConsultaAlumno;
+	}
+
+	public PanelModificarAlumno getPanelModificarAlumno() {
+		if(panelModificarAlumno == null){
+			panelModificarAlumno = new PanelModificarAlumno();
+		}
+		return panelModificarAlumno;
+	}
+
+	public PanelConsultaMultiplesAlumnos getPanelConsultaMultipleAlumnos() {
+		if(panelConsultaMultiplesAlumnos == null){
+			panelConsultaMultiplesAlumnos = new PanelConsultaMultiplesAlumnos();
+		}
+		return panelConsultaMultiplesAlumnos;
+	}
 }

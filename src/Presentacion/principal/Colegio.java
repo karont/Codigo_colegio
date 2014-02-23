@@ -6,6 +6,8 @@ import java.util.logging.Logger;
 
 import javax.swing.UIManager;
 
+import Presentacion.Ventanaprincipal.imp.VentanaPrincipal;
+
  public class Colegio {
 
     public final static String UNIDAD_PERSISTENCIA_ECLIPSELINK = "COLEGIO_PERSISTENCE_UNIT";
@@ -26,8 +28,8 @@ import javax.swing.UIManager;
 				"No se ha podido cargar el look and feel personalizado.");
 		    }
 
-		   // FramePrincipal frame = new FramePrincipal();
-		    //frame.setVisible(true);
+		    VentanaPrincipal frame = new VentanaPrincipal();
+		    frame.setVisible(true);
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}

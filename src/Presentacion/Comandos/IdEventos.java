@@ -9,149 +9,34 @@ package Presentacion.Comandos;
  * @author Alex
  * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
  */
-public class IdEventos {
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object ERROR_ALTA_ALUMNO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object ERROR_ALTA_ASIGNATURA;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object ERROR_ALTA_CURSO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object ERROR_BAJA_ASIGNATURA;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object ERROR_BAJA_ALUMNO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object ERROR_BAJA_CURSO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object ERROR_CONSULTAR_ASIGNATURA;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object ERROR_CONSULTAR_ALUMNO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object ERROR_CONSULTAR_CURSO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object ERROR_CONSULTAR_TODOS_ALUMNOS;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object ERROR_MODIFICAR_ALUMNO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object ERROR_MODIFICAR_ASIGNATURA;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object ERROR_MODIFICAR_CURSO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object EVENTO_ALTA_ALUMNO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object EVENTO_ALTA_ASIGNATURA;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object EVENTO_ALTA_CURSO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object EVENTO_BAJA_ALUMNO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object EVENTO_BAJA_ASIGNATURA;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object EVENTO_BAJA_CURSO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object EVENTO_CONSULTAR_ALUMNO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object EVENTO_CONSULTAR_ASIGNATURA;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object EVENTO_CONSULTAR_CURSO;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object EVENTO_CONSULTAR_TODOS_ALUMNOS;
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	private Object EVENTO_MODIFICAR_ALUMNO;
+public enum IdEventos {
+
+	ERROR_ALTA_ALUMNO,
+	ERROR_ALTA_ASIGNATURA,
+	ERROR_ALTA_GRUPO,
+	ERROR_BAJA_ASIGNATURA,
+	ERROR_BAJA_ALUMNO,
+	ERROR_BAJA_GRUPO,
+	ERROR_CONSULTAR_ASIGNATURA,
+	ERROR_CONSULTAR_ALUMNO,
+	ERROR_CONSULTAR_GRUPO,
+	ERROR_CONSULTAR_TODOS_ALUMNOS,
+	ERROR_MODIFICAR_ALUMNO,
+	ERROR_MODIFICAR_ASIGNATURA,
+	ERROR_MODIFICAR_GRUPO,
+	EVENTO_ALTA_ALUMNO,
+	EVENTO_ALTA_ASIGNATURA,
+	EVENTO_ALTA_GRUPO,
+	EVENTO_BAJA_ALUMNO,
+	EVENTO_BAJA_ASIGNATURA,
+	EVENTO_BAJA_GRUPO,
+	EVENTO_CONSULTAR_ALUMNO,
+	EVENTO_CONSULTAR_ASIGNATURA,
+	EVENTO_CONSULTAR_GRUPO,
+	EVENTO_CONSULTAR_TODOS_ALUMNOS,
+	EVENTO_MODIFICAR_ALUMNO, EVENTO_CONSULTAR_ALUMNO_V_MODIFICAR,
+	ERROR_CONSULTAR_ALUMNO_V_MODIFICAR, ERROR_CONSULTAR_ALUMNO_V_BORRAR, 
+	EVENTO_CONSULTAR_ALUMNO_V_BORRAR, EVENTO_CONSULTAR_TODOS_ALUMNO, 
+	ERROR_CONSULTAR_TODOS_ALUMNO, EVENTO_CONSULTAR_ASIGNATURA_V_BORRAR, 
+	ERROR_CONSULTAR_ASIGNATURA_V_BORRAR, EVENTO_CONSULTAR_GRUPO_V_BORRAR, ERROR_CONSULTAR_GRUPO_V_BORRAR,
 }

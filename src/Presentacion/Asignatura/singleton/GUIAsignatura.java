@@ -7,6 +7,7 @@ import Presentacion.Asignatura.imp.GUIAsignaturaimp;
 import Presentacion.Asignatura.paneles.PanelBajaAsignatura;
 import Presentacion.Asignatura.paneles.PanelAltaAsignatura;
 import Presentacion.Asignatura.paneles.PanelConsultarAsignatura;
+import Presentacion.Comandos.IdEventos;
 
 /** 
  * <!-- begin-UML-doc -->
@@ -14,24 +15,32 @@ import Presentacion.Asignatura.paneles.PanelConsultarAsignatura;
  * @author Alex
  * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
  */
-public class GUIAsignatura {
+public abstract class GUIAsignatura {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	private Object selfinstance;
+	private static GUIAsignatura guiasignaturainstance;
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void update() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
+	public abstract void update(IdEventos evento_actual, Object datos);
 
-		// end-user-code
+	/** 
+	 * <!-- begin-UML-doc -->
+	 * <!-- end-UML-doc -->
+	 * @return
+	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
+	 */
+	public static GUIAsignatura getInstance() {
+		if(guiasignaturainstance == null){
+			guiasignaturainstance = new GUIAsignaturaimp();
+		}
+		return guiasignaturainstance;
 	}
 
 	/** 
@@ -40,12 +49,7 @@ public class GUIAsignatura {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public GUIAsignaturaimp getInstance() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return null;
-		// end-user-code
-	}
+	public abstract PanelBajaAsignatura getPanelBajaAsignatura();
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -53,12 +57,7 @@ public class GUIAsignatura {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public PanelBajaAsignatura getPanelBajaAsignatura() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return null;
-		// end-user-code
-	}
+	public abstract PanelAltaAsignatura getPanelAltaAsignatura();
 
 	/** 
 	 * <!-- begin-UML-doc -->
@@ -66,23 +65,5 @@ public class GUIAsignatura {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public PanelAltaAsignatura getPanelAltaAsignatura() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return null;
-		// end-user-code
-	}
-
-	/** 
-	 * <!-- begin-UML-doc -->
-	 * <!-- end-UML-doc -->
-	 * @return
-	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
-	 */
-	public PanelConsultarAsignatura getPanelConsultarAsignatura() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-		return null;
-		// end-user-code
-	}
+	public abstract PanelConsultarAsignatura getPanelConsultarAsignatura();
 }

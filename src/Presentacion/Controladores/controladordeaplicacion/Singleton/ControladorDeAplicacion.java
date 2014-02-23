@@ -3,30 +3,34 @@
  */
 package Presentacion.Controladores.controladordeaplicacion.Singleton;
 
+
+import Presentacion.Comandos.IdEventos;
+import Presentacion.Controladores.controladordeaplicacion.imp.ControladorDeAplicacionImp;
+
 /** 
  * <!-- begin-UML-doc -->
  * <!-- end-UML-doc -->
  * @author Alex
  * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
  */
-public class ControladorDeAplicacion {
+public abstract class ControladorDeAplicacion {
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	private ControladorDeAplicacion controladordeaplicacioninstance;
+	private static ControladorDeAplicacion controladordeaplicacioninstance;
 
 	/** 
 	 * <!-- begin-UML-doc -->
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void getInstance() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
+	public static ControladorDeAplicacion getInstance() {
+		if (controladordeaplicacioninstance == null){
+			controladordeaplicacioninstance = new ControladorDeAplicacionImp();
+		}
+		return controladordeaplicacioninstance;
 	}
 
 	/** 
@@ -34,10 +38,5 @@ public class ControladorDeAplicacion {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public void handleRequest() {
-		// begin-user-code
-		// TODO Apéndice de método generado automáticamente
-
-		// end-user-code
-	}
+	public abstract void handleRequest(IdEventos evento, Object datos);
 }
