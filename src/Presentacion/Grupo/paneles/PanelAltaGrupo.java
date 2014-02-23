@@ -3,6 +3,8 @@
  */
 package Presentacion.Grupo.paneles;
 
+import javax.swing.JPanel;
+
 import Presentacion.Comandos.IdEventos;
 import Presentacion.Ventanaprincipal.Interfazpaneles.GuiPanelesInterfaz;
 
@@ -12,7 +14,7 @@ import Presentacion.Ventanaprincipal.Interfazpaneles.GuiPanelesInterfaz;
  * @author Alex
  * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
  */
-public class PanelAltaGrupo implements GuiPanelesInterfaz {
+public class PanelAltaGrupo extends JPanel implements GuiPanelesInterfaz {
 	/** 
 	 * (sin Javadoc)
 	 * @see GuiPanelesInterfaz#actualizarVentana()

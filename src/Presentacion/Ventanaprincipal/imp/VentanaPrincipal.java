@@ -33,6 +33,10 @@ import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import Presentacion.Alumno.singleton.GUIAlumno;
+import Presentacion.Asignatura.singleton.GUIAsignatura;
+import Presentacion.Grupo.singleton.GUIGrupo;
+
 public class VentanaPrincipal extends JFrame{
 
 
@@ -95,9 +99,9 @@ public class VentanaPrincipal extends JFrame{
 			btnGrupo = new JButton("Grupo");
 			btnGrupo.setHorizontalTextPosition(SwingConstants.CENTER);
 			btnGrupo.setToolTipText("Abre la sección de administración de Grupos");
-			//btnGrupo.setRolloverIcon(new ImageIcon(VentanaPrincipal.class.getResource("/images/icons/Departamentos64Over.png")));
+			//btnGrupo.setRolloverIcon(new ImageIcon(VentanaPrincipal.class.getResource("/images/icons/")));
 			btnGrupo.setVerticalTextPosition(SwingConstants.BOTTOM);
-			//btnGrupo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/images/icons/Departamentos64.png")));
+			//btnGrupo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/images/icons/")));
 			
 			btnGrupo.addActionListener(new ActionListener() {
 				@Override
@@ -115,11 +119,9 @@ public class VentanaPrincipal extends JFrame{
 					
 					
 					JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.BOTTOM);
-//					tabbedPane.add("Alta departamento", GUIDepartamentos.getInstance().getPanelAltaDepartamentos());
-//					tabbedPane.add("Baja departamento", GUIDepartamentos.getInstance().getPanelBajaDepartamentos());
-//					tabbedPane.add("Modificación departamentos", GUIDepartamentos.getInstance().getPanelModificacionDepartamentos());
-//					tabbedPane.add("Consulta departamentos", GUIDepartamentos.getInstance().getPanelConsultaDepartamentos());
-//					tabbedPane.add("Consulta múltiple departamentos", GUIDepartamentos.getInstance().getPanelConsultaMultiplesDepartamentos());
+					tabbedPane.add("Alta Grupo", GUIGrupo.getInstance().getPanelAltaGrupo());
+					tabbedPane.add("Baja Grupo", GUIGrupo.getInstance().getPanelBajaGrupo());
+					tabbedPane.add("Consulta Grupo", GUIGrupo.getInstance().getPanelConsultaGrupo());
 					
 					contentPane.add(tabbedPane, BorderLayout.CENTER);
 					contentPane.validate();
@@ -136,14 +138,14 @@ public class VentanaPrincipal extends JFrame{
 			btnAlumnos.setMnemonic(KeyEvent.VK_E);
 			btnAlumnos.setToolTipText("Abre la sección de administración de Alumnos");
 			btnAlumnos.setVerticalTextPosition(SwingConstants.BOTTOM);
-			//btnAlumnos.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/images/icons/Empleados64.png")));
-			//btnAlumnos.setRolloverIcon(new ImageIcon(VentanaPrincipal.class.getResource("/images/icons/Empleados64Over.png")));
+			//btnAlumnos.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/images/icons/")));
+			//btnAlumnos.setRolloverIcon(new ImageIcon(VentanaPrincipal.class.getResource("/images/icons/")));
 			
 			btnAlumnos.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 
-					btnGrupo.setEnabled(false);
+					btnAlumnos.setEnabled(false);
 
 					Component c = ((BorderLayout)contentPane.getLayout()).getLayoutComponent(BorderLayout.CENTER);
 					
@@ -154,13 +156,13 @@ public class VentanaPrincipal extends JFrame{
 					}
 				
 					JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.BOTTOM);
-//					tabbedPane.add("Alta empleados", GUIEmpleados.getInstance().getPanelAltaEmpleados());
-//					tabbedPane.add("Baja empleados", GUIEmpleados.getInstance().getPanelBajaEmpleados());
-//					tabbedPane.add("Modificación empleados", GUIEmpleados.getInstance().getPanelModificacionEmpleados());
-//					tabbedPane.add("Consulta empleados", GUIEmpleados.getInstance().getPanelConsultaEmpleados());
-//					tabbedPane.add("Consulta múltiple empleados", GUIEmpleados.getInstance().getPanelConsultaMultipleEmpleados());
-//					tabbedPane.add("Consulta empleados por tarea", GUIEmpleados.getInstance().getPanelConsutlaEmpleadosPorTarea());
-//					tabbedPane.add("Asignar tareas", GUIEmpleados.getInstance().getPanelAsignarTareaEmpleados());
+					tabbedPane.add("Alta Alumnos", GUIAlumno.getInstance().getPanelAltaAlumno());
+					tabbedPane.add("Baja Alumnos", GUIAlumno.getInstance().getPanelBajaAlumno());
+					tabbedPane.add("Modificación Alumnos", GUIAlumno.getInstance().getPanelModificarAlumno());
+					tabbedPane.add("Consulta Alumnos", GUIAlumno.getInstance().getPanelConsultaAlumno());
+					tabbedPane.add("Consulta múltiple Alumnos", GUIAlumno.getInstance().getPanelConsultaMultipleAlumnos());
+//					tabbedPane.add("Consulta alumnos por curso", GUIAlumno.getInstance().getPanelConsutlaAlumnosPorCurso());
+//					tabbedPane.add("Asignar curso", GUIAlumno.getInstance().getPanelAsignarCursoAlumno());
 					
 					contentPane.add(tabbedPane, BorderLayout.CENTER);
 					contentPane.validate();
@@ -173,8 +175,8 @@ public class VentanaPrincipal extends JFrame{
 			toolBar.add(btnAlumnos);
 			
 			btnAsignatura = new JButton("Asignatura");
-			//btnAsignatura.setRolloverIcon(new ImageIcon(VentanaPrincipal.class.getResource("/images/icons/Tareas64Over.png")));
-			//btnAsignatura.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/images/icons/Tareas64.png")));
+			//btnAsignatura.setRolloverIcon(new ImageIcon(VentanaPrincipal.class.getResource("/images/icons/")));
+			//btnAsignatura.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/images/icons/")));
 			btnAsignatura.setVerticalTextPosition(SwingConstants.BOTTOM);
 			btnAsignatura.setHorizontalTextPosition(SwingConstants.CENTER);
 			
@@ -193,11 +195,10 @@ public class VentanaPrincipal extends JFrame{
 					}
 					
 					JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.BOTTOM);
-//					tabbedPane.add("Alta tareas", GUITareas.getInstance().getPanelAltaTareas());
-//					tabbedPane.add("Baja tareas", GUITareas.getInstance().getPanelBajaTareas());
-//					tabbedPane.add("Modificación tareas", GUITareas.getInstance().getPanelModificacionTareas());
-//					tabbedPane.add("Consulta tareas", GUITareas.getInstance().getPanelConsultaTarea());
-//					tabbedPane.add("Consulta múltiple tareas", GUITareas.getInstance().getPanelConsultaMultipleTareas());
+					tabbedPane.add("Alta tareas", GUIAsignatura.getInstance().getPanelAltaAsignatura());
+					tabbedPane.add("Baja tareas", GUIAsignatura.getInstance().getPanelBajaAsignatura());
+					tabbedPane.add("Consulta tareas", GUIAsignatura.getInstance().getPanelConsultarAsignatura());
+
 					
 					contentPane.add(tabbedPane, BorderLayout.CENTER);
 					contentPane.validate();
