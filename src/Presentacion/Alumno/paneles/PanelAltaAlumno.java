@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -22,6 +21,7 @@ import negocio.Alumno.objetodenegocio.Alumno;
 import negocio.Alumno.objetodenegocio.AlumnoNoBecado;
 import negocio.Alumno.objetodenegocio.Alumno.TipoAlumno;
 import negocio.Alumno.objetodenegocio.AlumnoBecado;
+import negocio.exceptions.ColegioExceptions;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -202,7 +202,29 @@ public class PanelAltaAlumno extends JPanel implements GuiPanelesInterfaz {
 		add(btnAceptar, "cell 5 11,alignx left,aligny top");
 	}
 	public void actualizarVentana(IdEventos idEvento, Object datos) {
-		// TODO Auto-generated method stub
+		
+		if(IdEventos.EVENTO_ALTA_ALUMNO == idEvento){
+			
+			if(datos instanceof Alumno){
+				JOptionPane.showMessageDialog(contentPane, "Alumno creado correctamente. Su id es : "+((Alumno)datos).getID(), "Aviso", JOptionPane.INFORMATION_MESSAGE);
+				
+				textDNI.setText("");
+				textPrimerApellido.setText("");
+				textSegundoApellido.setText("");
+				textNombre.setText("");
+				textBeca.setText("");
+				cbTipo.setSelectedIndex(-1);
+			}
+		}
+		
+		else if (IdEventos.ERROR_ALTA_ALUMNO == idEvento){
+			if(datos instanceof ColegioExceptions){
+				JOptionPane.showMessageDialog(contentPane, ((ColegioExceptions)datos).getMensaje(), "Error", JOptionPane.ERROR_MESSAGE);
+			}
+			else {
+				JOptionPane.showMessageDialog(contentPane, "Error genérico", "Error", JOptionPane.ERROR_MESSAGE);
+			}
+		}
 		
 	}
 }
