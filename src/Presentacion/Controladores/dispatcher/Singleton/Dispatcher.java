@@ -25,7 +25,7 @@ public abstract class Dispatcher {
 	 * <!-- end-UML-doc -->
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	private  static Dispatcher getInstance() {
+	public static Dispatcher getInstance() {
 		if (dispatcherinstance == null)
 			dispatcherinstance = new DispatcherImp();
 		return dispatcherinstance;

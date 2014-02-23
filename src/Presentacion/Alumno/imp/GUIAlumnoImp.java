@@ -73,8 +73,8 @@ public class GUIAlumnoImp extends GUIAlumno {
 			case ERROR_CONSULTAR_ALUMNO:
 				getPanelConsultaAlumno().actualizarVentana(evento_actual, datos);
 				break;
-			case EVENTO_CONSULTAR_TODOS_ALUMNO:
-			case ERROR_CONSULTAR_TODOS_ALUMNO:
+			case EVENTO_CONSULTAR_TODOS_ALUMNOS:
+			case ERROR_CONSULTAR_TODOS_ALUMNOS:
 				getPanelConsultaMultipleAlumnos().actualizarVentana(evento_actual, datos);
 				break;
 	

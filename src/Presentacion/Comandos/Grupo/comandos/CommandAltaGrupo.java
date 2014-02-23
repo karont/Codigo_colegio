@@ -3,7 +3,11 @@
  */
 package Presentacion.Comandos.Grupo.comandos;
 
+import negocio.Grupo.objetodenegocio.Grupo;
+import negocio.exceptions.ColegioExceptions;
+import negocio.factoria.Singleton.FactorySA;
 import Presentacion.Comandos.CommandResponse;
+import Presentacion.Comandos.IdEventos;
 import Presentacion.Comandos.interfaz.Command;
 
 /** 
@@ -20,7 +24,20 @@ public class CommandAltaGrupo implements Command {
 	 */
 	
 	public CommandResponse execute(Object datos) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		CommandResponse cr = new CommandResponse();
+		
+		try {
+
+			cr.setDatos(FactorySA.getInstance().getSAgrupo().añadirGrupo((Grupo)datos));
+			cr.setEvento(IdEventos.EVENTO_ALTA_ASIGNATURA);
+
+		} catch (ColegioExceptions bsod) {
+
+			cr.setDatos(bsod);
+			cr.setEvento(IdEventos.ERROR_ALTA_ASIGNATURA);
+		}
+		
+		return cr;
 	}
 }

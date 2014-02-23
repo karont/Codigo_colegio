@@ -28,7 +28,7 @@ public abstract class FactorySA {
 	 * @return
 	 * @generated "UML a JPA (com.ibm.xtools.transform.uml2.ejb3.java.jpa.internal.UML2JPATransform)"
 	 */
-	public FactorySA getInstance() {
+	public static FactorySA getInstance() {
 		if(factorysainstance == null)
 			factorysainstance = new FactorySAimp();
 		
